@@ -47,17 +47,26 @@
     },
     "routes": [
         {
-            "route": "/login",
-            "allowedRoles": [
-                "anonymous",
-                "authenticated"
-            ]
+            "route": "/",
+            "allowedRoles": ["authenticated"]
         },
         {
-            "route": "/*",
-            "allowedRoles": [
-                "authenticated"
-            ]
+            "route": "/login",
+            "serve": "/login.html"
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout"
+        },
+        {
+            "route": "/.auth/login/dev",
+			"redirect": "/.auth/login/devInplaceSSO?post_login_redirect_uri=.referrer",
+            "statusCode": 302
+        },
+        {
+            "route": "/.auth/login/prod",
+			"redirect": "/.auth/login/inplaceSSO?post_login_redirect_uri=.referrer",
+            "statusCode": 302
         }
     ],
     "responseOverrides": {
