@@ -60,12 +60,12 @@
         },
         {
             "route": "/.auth/login/dev",
-            "redirect": "/.auth/login/devInplaceSSO?post_login_redirect_uri=.referrer",
+            "redirect": "/.auth/login/devInplaceSSO",
             "statusCode": 302
         },
         {
             "route": "/.auth/login/prod",
-            "redirect": "/.auth/login/inplaceSSO?post_login_redirect_uri=.referrer",
+            "redirect": "/.auth/login/inplaceSSO",
             "statusCode": 302
         }
     ],
