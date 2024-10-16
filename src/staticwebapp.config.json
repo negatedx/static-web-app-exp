@@ -2,7 +2,7 @@
     "auth": {
         "identityProviders": {
             "customOpenIdConnectProviders": {
-                "inplaceSSO": {
+                "devInplaceSSO": {
                     "registration": {
                         "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
                         "clientCredential": {
@@ -21,6 +21,26 @@
                         ],
                         "loginParameterNames": []
                     }
+                },
+                "inplaceSSO": {
+                    "registration": {
+                        "clientIdSettingName": "PROD_CLIENT_ID",
+                        "clientCredential": {
+                            "clientSecretSettingName": "PROD_CLIENT_SECRET"
+                        },
+                        "openIdConnectConfiguration": {
+                            "wellKnownOpenIdConfiguration": "https://auth-au.inplacesoftware.com/.well-known/openid-configuration"
+                        }
+                    },
+                    "login": {
+                        "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                        "scopes": [
+                            "openid",
+                            "profile",
+                            "email"
+                        ],
+                        "loginParameterNames": []
+                    }
                 }
             }
         }
@@ -28,7 +48,7 @@
     "routes": [
         {
             "route": "/login",
-            "rewrite": "/.auth/login/inplaceSSO"
+            "rewrite": "/.auth/login/devInplaceSSO"
         },
         {
             "route": "/logout",
