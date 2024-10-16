@@ -60,18 +60,18 @@
         },
         {
             "route": "/.auth/login/dev",
-			"redirect": "/.auth/login/devInplaceSSO?post_login_redirect_uri=.referrer",
+            "redirect": "/.auth/login/devInplaceSSO?post_login_redirect_uri=.referrer",
             "statusCode": 302
         },
         {
             "route": "/.auth/login/prod",
-			"redirect": "/.auth/login/inplaceSSO?post_login_redirect_uri=.referrer",
+            "redirect": "/.auth/login/inplaceSSO?post_login_redirect_uri=.referrer",
             "statusCode": 302
         }
     ],
     "responseOverrides": {
         "401": {
-            "redirect": "/.auth/login/devInplaceSSO?post_login_redirect_uri=.referrer",
+            "redirect": "/login",
             "statusCode": 302
         }
     }
