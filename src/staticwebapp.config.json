@@ -1,24 +1,32 @@
 {
     "auth": {
-      "identityProviders": {
-        "customOpenIdConnectProviders": {
-          "inplaceSSO": {
-            "registration": {
-              "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
-              "clientCredential": {
-                "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET_APP_SETTING_NAME"
-              },
-              "openIdConnectConfiguration": {
-                "wellKnownOpenIdConfiguration": "https://signon.dev.quantumit.net/.well-known/openid-configuration"
-              }
-            },
-            "login": {
-              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-              "scopes": [],
-              "loginParameterNames": []
+        "identityProviders": {
+            "customOpenIdConnectProviders": {
+                "inplaceSSO": {
+                    "registration": {
+                        "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
+                        "clientCredential": {
+                            "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET_APP_SETTING_NAME"
+                        },
+                        "openIdConnectConfiguration": {
+                            "wellKnownOpenIdConfiguration": "https://signon.dev.quantumit.net/.well-known/openid-configuration"
+                        }
+                    },
+                    "login": {
+                        "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                        "scopes": [],
+                        "loginParameterNames": []
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  }
+    },
+    "routes": [
+        {
+            "route": "/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
+    ]
+}
